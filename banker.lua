@@ -122,9 +122,9 @@ function check_banker_command(...)
     local new_mode = string.lower(cmd[2])
     if new_mode == "manual" or new_mode == "auto" or new_mode == "zone" then
       settings.mode = new_mode
-      windower.add_to_chat(69,"BANKER: Mode is now: %s":format(new_mode))
+      log("Mode is now: %s":format(new_mode))
     else
-      windower.add_to_chat(69,"BANKER: '%s' is not a valid mode. Valid Modes: auto, zone, manual":format(new_mode))
+      log("'%s' is not a valid mode. Valid Modes: auto, zone, manual":format(new_mode))
     end
   elseif cmd[1] == "mode" and cmd[2] == nil then
     log("Mode: %s":format(settings.mode))
@@ -160,7 +160,18 @@ function check_banker_command(...)
     end
   end
 
-
+  if cmd[1] == "alert" and cmd[2] ~= nil then
+    if cmd[2] == "true" then
+      settings.alert = true
+      log("Alert: true")
+    else
+      settings.alert = false
+      log("Alert: false")
+    end
+    if settings.mode ~= 'manual' then
+      banker_menu_interact()
+    end
+  end
   config.save(settings)
 end
 
@@ -170,7 +181,7 @@ function banker_menu_interact()
     windower.packets.inject_outgoing(0x115,string.char(0x36,0x20,0,0))
     windower.packets.inject_outgoing(0x10F,string.char(0x36,0x20,0,0))
   else
-    log("BANKER: Player not Loaded or in Menu mode")
+    log("Player not Loaded or in Menu mode")
   end
 end
 
@@ -299,8 +310,11 @@ function banker_should_alert( item, value )
 end
 
 function banker_alert( item, value )
-  log( "ALERT! "..item.." : "..value.." or more!" )
-  local msg = ""..item.." : "..value.." or more."
+  if settings.alert ~= true then
+    return false
+  end
+  log( "ALERT! "..item.." : "..value )
+  local msg = ""..item.." : "..value
   local alertbox = texts.new(msg)
   local windower_settings = windower.get_windower_settings()
   local x,y
