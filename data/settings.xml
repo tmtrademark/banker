@@ -7,7 +7,7 @@
         </alerts>
         <alerts_x_pos>480</alerts_x_pos>
         <alerts_y_pos>540</alerts_y_pos>
-        <balance>Bayld,Escha Beads,Escha Silt,Coalition Imprimaturs</balance>
+        <balance>Coalition Imprimaturs,Escha Beads,Escha Silt,Bayld</balance>
         <chestImage>
             <color>
                 <alpha>255</alpha>
@@ -40,5 +40,6 @@
     </global>
     <farok>
         <alert>true</alert>
+        <balance>Escha Beads,Coalition Imprimaturs,Bayld</balance>
     </farok>
 </settings>
