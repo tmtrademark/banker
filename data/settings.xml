@@ -1,0 +1,42 @@
+<?xml version="1.1" ?>
+<settings>
+    <global>
+        <alert>false</alert>
+        <alerts>
+            <Coalition_Imprimaturs>15</Coalition_Imprimaturs>
+            <escha_beads>10</escha_beads>
+        </alerts>
+        <alerts_x_pos>480</alerts_x_pos>
+        <alerts_y_pos>540</alerts_y_pos>
+        <balance>Coalition Imprimaturs,Escha Beads,Escha Silt,Bayld</balance>
+        <chestImage>
+            <color>
+                <alpha>255</alpha>
+                <blue>255</blue>
+                <green>255</green>
+                <red>255</red>
+            </color>
+            <draggable>false</draggable>
+            <pos>
+                <x>1902</x>
+                <y>-2</y>
+            </pos>
+            <repeatable>
+                <x>1</x>
+                <y>1</y>
+            </repeatable>
+            <size>
+                <height>16</height>
+                <width>16</width>
+            </size>
+            <texture>
+                <fit>false</fit>
+                <path>O:\Windower\/addons/banker/coins.png</path>
+            </texture>
+            <visible>true</visible>
+        </chestImage>
+        <mode>zone</mode>
+        <x_pos>1902</x_pos>
+        <y_pos>0</y_pos>
+    </global>
+</settings>
